@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task</title>
+</head>
+
+<body>
+    <h1>Events on JavaScript</h1>
+    <button id="btn">Click Me!</button><br>
+    <p id="message"></p>
+
+    <label>Name: <input type="text" placeholder="Enter your Name" /></label><br>
+    <p id="PrintName"></p>
+    <label for="dropdown">Choose a color:</label>
+    <select id="dropdown" name="dropdown">
+        <option value="Red">Red</option>
+        <option value="Blue">Blue</option>
+        <option value="Green">Green</option>
+        <option value="Yellow">Yellow</option>
+    </select><br>
+    <p id="selectedColor"></p>
+    <label for="write">Type Something:
+        <input type="text" id="write" />
+    </label>
+
+    <p id="output"></p>
+
+    <script>
+        document.getElementById("btn").addEventListener("click", function () {
+            document.getElementById("message").innerHTML = "<b>Button clicked!</b>";
+        });
+        const dropdown = document.getElementById("dropdown");
+        dropdown.addEventListener("change", function () {
+            const selectedColor = dropdown.value;
+            document.getElementById("selectedColor").innerHTML = "You Selected: " + selectedColor;
+        });
+        const inputField = document.getElementById("write");
+        inputField.addEventListener("input", function () {
+            const typedText = inputField.value;
+            document.getElementById("output").innerHTML = "You Typed: " + typedText;
+        });
+
+    </script>
+</body>
+
+</html>
