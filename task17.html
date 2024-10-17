@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Details</title>
+    <style>
+        .error {
+            color: red;
+            font-size: 12px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Enter Your Details Here</h1>
+    <div id="container">
+        <form id="form">
+            <label for="firstName">First Name:
+                <input type="text" id="firstName" />
+                <span id="nameError" class="error">First name must be at least 4 characters long</span> </label><br />
+
+            <label for="age">Age: <input type="number" placeholder="Under 90" /></label><br />
+            <label for="dob">Date of Birth: <input type="date" /></label><br />
+            <label for="email">Email: <input type="text" placeholder="@abes.ac.in" /></label>
+            <label for="password">Password: <input type="text" /></label><br />
+
+            <label for="size">
+                <p>Enter Your TShirt Size</p>
+                <input type="radio" name="size" value="Small" id="small" />Small
+                <br />
+                <input type="radio" name="size" value="Large" id="large" />Large
+                <br />
+            </label>
+
+            <label for="color">Your Favorite Color: <input type="color" /></label><br />
+
+            <label for="textarea">Tell us about Your Self: <textarea name="YourSelf"></textarea></label><br />
+
+            <button type="button" id="submit">Submit</button>
+            <button type="reset" id="reset">Reset</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("submit").addEventListener("click", function (e) {
+            const firstName = document.getElementById("firstName").value;
+            const nameError = document.getElementById("nameError");
+
+            nameError.style.display = "none";
+
+            if (firstName.length < 4) {
+                nameError.style.display = "inline";
+            } else {
+                alert("Form submitted successfully!");
+            }
+        });
+    </script>
+</body>
+
+</html>
