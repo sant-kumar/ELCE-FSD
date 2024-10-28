@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task</title>
+</head>
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: rgb(133, 192, 192);
+        margin: 0%;
+        padding: 20px;
+    }
+
+    h1 {
+        color: #333;
+        text-align: center;
+    }
+
+    button {
+        padding: 10px 20px;
+        background-color: #bb1972;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    input[type="text"] {
+        padding: 8px;
+        width: 200px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin: 10px 0;
+    }
+
+    select {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    p {
+        font-size: 15px;
+        color: #8b6060;
+    }
+
+    label {
+        font-weight: bold;
+        display: inline-block;
+        margin-top: 10px;
+    }
+
+    #output,
+    #message,
+    #print,
+    #PrintName,
+    #selectedColor {
+        color: #007bff;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+</style>
+
+<body>
+    <h1>Events on JavaScript</h1>
+    <button id="btn">Click Me!</button><br />
+    <p id="message"></p>
+
+    <label for="name">Name:
+        <input type="text" id="name" placeholder="Enter your Name" /></label><br />
+    <p id="print"></p>
+    <p id="PrintName"></p>
+    <label for="dropdown">Choose a color:</label>
+    <select id="dropdown" name="dropdown">
+        <option value="Red">Red</option>
+        <option value="Blue">Blue</option>
+        <option value="Green">Green</option>
+        <option value="Yellow">Yellow</option>
+    </select><br />
+    <p id="selectedColor"></p>
+    <label for="write">Type Something:
+        <input type="text" id="write" />
+    </label>
+
+    <p id="output"></p>
+
+    <script>
+        document.getElementById("btn").addEventListener("click", function () {
+            document.getElementById("message").innerHTML = "<b>Button clicked!</b>";
+        });
+        const dropdown = document.getElementById("dropdown");
+        dropdown.addEventListener("change", function () {
+            const selectedColor = dropdown.value;
+            document.getElementById("selectedColor").innerHTML =
+                "You Selected: " + selectedColor;
+        });
+
+        const inputnameField = document.getElementById("name");
+        const printPara = document.getElementById("print");
+        /*inputnameField.addEventListener("input", function () {
+              const typedText = inputnameField.value;
+              printPara.innerHTML = "You are typing: " + typedText;
+          });*/
+        inputnameField.addEventListener("focus", function () {
+            printPara.innerHTML = "Focused Here";
+        });
+        inputnameField.addEventListener("blur", function () {
+            if (inputnameField.value.trim() !== "") {
+                printPara.innerHTML = "Focused Here!";
+            } else {
+                printPara.innerHTML = "Not Focused Here!";
+            }
+        });
+
+        const inputField = document.getElementById("write");
+        inputField.addEventListener("input", function () {
+            const typedText = inputField.value;
+            document.getElementById("output").innerHTML = "You Typed: " + typedText;
+        });
+    </script>
+</body>
+
+</html>
